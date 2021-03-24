@@ -5,7 +5,7 @@ import sqlite3
 from idaapi import *
 from idautils import *
 from idc import *
-path = 'C:/Users/10110/Documents/ZzyWork/Final_Work/'
+path = 'F:/ZzyWork/Final_Work//'
 outcome = path + 'outcome/temporary_info.txt'
 
 if __name__=="__main__":
