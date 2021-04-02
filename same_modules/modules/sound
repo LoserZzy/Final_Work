@@ -1,0 +1,3 @@
+kernel/sound/soundcore.ko
+kernel/sound/synth/snd-util-mem.ko
+kernel/sound/ac97_bus.ko

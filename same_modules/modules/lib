@@ -1,0 +1,17 @@
+kernel/lib/xz/xz_dec_test.ko
+kernel/lib/bch.ko
+kernel/lib/lz4/lz4hc_compress.ko
+kernel/lib/test_bpf.ko
+kernel/lib/crc-itu-t.ko
+kernel/lib/crc7.ko
+kernel/lib/libcrc32c.ko
+kernel/lib/crc8.ko
+kernel/lib/reed_solomon/reed_solomon.ko
+kernel/lib/bch.ko
+kernel/lib/raid6/raid6_pq.ko
+kernel/lib/ts_kmp.ko
+kernel/lib/ts_bm.ko
+kernel/lib/ts_fsm.ko
+kernel/lib/notifier-error-inject.ko
+kernel/lib/lru_cache.ko
+kernel/lib/math/cordic.ko
