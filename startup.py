@@ -44,7 +44,7 @@ def func_call_info(modules):
         for m in modules:
             # print(path_file + m)
             doit = path_ida + "idaq64 -c -A -S" + path_scripts + scripts_x86 + ' ' + path_file + m
-            # print(doit)
+            print(doit)
             os.system(doit)
             f = open(path_outcome + outcome_name, 'r')
             r = f.read().replace('\n', '')
@@ -118,7 +118,7 @@ def compare_and_analyze(modules):
 
 
 if __name__ == '__main__':
-    # modules = mod_relate_raw()
+    modules = mod_relate_raw()
     # print(modules)
-    # func_call_info(modules)
+    func_call_info(modules)
     # compare_and_analyze(modules)

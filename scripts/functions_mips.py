@@ -14,14 +14,25 @@ if __name__=="__main__":
     func_loc = list(func_loc) 
     f = open(outcome, 'w')
 
-    func_info = {'extern':[], 'define':[]}
+    func_info = {'extern':{}, 'define':[]}
     for loc in func_loc:
         # print loc, 'loc'
         v = idc.GetDisasm(loc)
         v = v.split(' ')[0]
-        # print v
         if v == '.extern':
-            func_info['extern'].append(GetFunctionName(loc))
+            func_info['extern'][GetFunctionName(loc)] = 0
+            end_addr = FindText(MinEA(), SEARCH_DOWN, 0, 0, 'Segment type: Pure data')
+            cur_addr = end_addr
+            while cur_addr <= MaxEA():
+                cur_addr = FindText(cur_addr, SEARCH_UP, 0, 0, GetFunctionName(loc))
+                if cur_addr > MaxEA():
+                    break
+                else:
+                    r = GetDisasm(cur_addr).split()
+                    # print(GetFunctionName(loc), r)
+                    if r[0][0] == 'j' and r[-1].replace(';', '') == GetFunctionName(loc):
+                        func_info['extern'][GetFunctionName(loc)] += 1
+                cur_addr = PrevHead(cur_addr)
         else:
             func_info['define'].append(GetFunctionName(loc))
         # print str(func_info), 'func_info'
